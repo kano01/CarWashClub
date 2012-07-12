@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="GrailsWeb">
+      <configuration>
+        <webroots>
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-1.7.1/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-ui-1.8.15/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/mail-1.0/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/mail-1.0/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/plugin-config-0.1.5/web-app" relative="/" />
+        </webroots>
+        <sourceRoots />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/hibernate-2.0.3">
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/hibernate-2.0.3/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/hibernate-2.0.3/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/hibernate-2.0.3/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-1.7.1">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-1.7.1/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-1.7.1/grails-app/services" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-1.7.1/grails-app/taglib" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-1.7.1/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-1.7.1/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-1.7.1/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-ui-1.8.15">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-ui-1.8.15/grails-app/taglib" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-ui-1.8.15/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-ui-1.8.15/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/jquery-ui-1.8.15/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/mail-1.0">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/mail-1.0/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/mail-1.0/grails-app/services" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/mail-1.0/grails-app/taglib" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/mail-1.0/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/mail-1.0/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/mail-1.0/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/plugin-config-0.1.5">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/plugin-config-0.1.5/src/java" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/plugin-config-0.1.5/src/groovy" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/plugin-config-0.1.5/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/plugin-config-0.1.5/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/plugin-config-0.1.5/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/quartz2-0.2.3">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/quartz2-0.2.3/src/java" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/quartz2-0.2.3/src/groovy" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/quartz2-0.2.3/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/quartz2-0.2.3/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/quartz2-0.2.3/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/resources-1.1.6">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/resources-1.1.6/src/java" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/resources-1.1.6/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/resources-1.1.6/grails-app/taglib" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/resources-1.1.6/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/resources-1.1.6/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/resources-1.1.6/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/spring-security-core-1.2.7.3">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/spring-security-core-1.2.7.3/src/java" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/spring-security-core-1.2.7.3/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/spring-security-core-1.2.7.3/grails-app/services" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/spring-security-core-1.2.7.3/grails-app/taglib" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/spring-security-core-1.2.7.3/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/spring-security-core-1.2.7.3/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/spring-security-core-1.2.7.3/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/tomcat-2.0.3">
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/tomcat-2.0.3/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/tomcat-2.0.3/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/tomcat-2.0.3/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/webxml-1.4.1">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/webxml-1.4.1/src/groovy" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/webxml-1.4.1/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/webxml-1.4.1/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.3/projects/CarWashClub/plugins/webxml-1.4.1/web-app/plugins" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="grails-2.0.3" level="application" />
+    <orderEntry type="module-library" exported="">
+      <library name="Grails User Library (CarWashClub-grailsPlugins)">
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-core/jars/spring-security-core-3.0.7.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-web/jars/spring-security-web-3.0.7.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.16.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.quartz-scheduler/quartz/jars/quartz-2.1.5.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.activation/activation/jars/activation-1.1.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.mail/mail/jars/mail-1.4.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
+
