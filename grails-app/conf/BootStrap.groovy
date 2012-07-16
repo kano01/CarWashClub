@@ -13,7 +13,7 @@ class BootStrap {
     def quartzScheduler
 
     def init = { servletContext ->
-        log.info("HELLO BOOOOOT");
+        log.info("Bootstrap Init starting quartz");
 
         if(User.count() == 0){
           def adminUser = new User(username: 'admin', enabled: true, password: 'password')

@@ -3,31 +3,30 @@ package au.com.carwashclub
 import org.quartz.Job
 import org.quartz.JobExecutionContext
 import au.com.carwashclub.magento.SalesFlatOrder
-import org.apache.log4j.Logger
-
-
+import au.com.carwashclub.magento.SalesFlatOrderItem
 
 class SalesPollerJob implements Job{
 
-     static Logger LOG =  org.apache.log4j.Logger.getLogger("au.com.carwashclub.SalesPollerJob");
-
      void execute(JobExecutionContext jobCtx) {
 
-        // Say Hello to the World and display the date/time
-        log.info("Hello from - ${jobCtx.jobDetail.key.name} }" )
-         LOG.info("Hello2 from - ${jobCtx.jobDetail.key.name} }" )
+
+        log.info("Running ${jobCtx.jobDetail.key.name} " )
 
         def result = SalesFlatOrder.findAll {
             voucherSent == null
         }
 
-        log.error result.size();
-
         result.each {
-            log.info "generate vouchers for " + ((SalesFlatOrder)it).customerFirstname + " " + ((SalesFlatOrder)it).customerLastname
-            def items =  ((SalesFlatOrder)it).saleFlatOrderItems;
+            SalesFlatOrder s = ((SalesFlatOrder)it);
+            log.info("Generate vouchers for ID: " + s.id +
+                    " Customer: " + s.customerFirstname + " " + s.customerLastname) +
+                    " Created Date: " + s.createdAt.toLocaleString();
+            def items =  s.saleFlatOrderItems;
             items.each {
-                println "generate voucher for " + it.productId + " " + it.productType
+                SalesFlatOrderItem sf =  ((SalesFlatOrderItem)it);
+                log.info("Processing line item ID: " + sf.id + " Product:"  + sf.name + " Product Type: " + sf.productId);
+                String[] tokenPin = GenerateVoucher.getInstance().generateTokenAndPin();
+
             }
 
 //            ((SalesFlatOrder)it).voucherEmailSent = 1;

@@ -88,9 +88,6 @@ log4j = {
     def logDirectory = "./logs"
 
     appenders {
-//        console name: "stdout", layout: pattern(conversionPattern: "%d{yyyy-MMM-dd HH:mm:ss,SSS} [%t] %c %x%n %-5p %m%n")
-//        file name: "errors", file: logDirectory+"/errors.log", threshold: org.apache.log4j.Level.ERROR,  layout: pattern(conversionPattern: "%d{yyyy-MMM-dd HH:mm:ss,SSS} [%t] %c %x%n %-5p %m%n")
-//        appender new org.apache.log4j.DailyRollingFileAppender(name:"roll", datePattern: "'.'yyyy-MM-dd", file:logDirectory+"/processing.log", threshold: org.apache.log4j.Level.INFO, layout: pattern(conversionPattern: "%d{yyyy-MMM-dd HH:mm:ss,SSS} [%t] %c %x%n %-5p %m%n"))
 
         // Use if we want to prevent creation of a stacktrace.log file.
         'null' name:'stacktrace'
@@ -99,7 +96,7 @@ log4j = {
         // Custom log file.
         rollingFile name:"appLog",
                         file:logDirectory + '/carwashclub.log',
-                        maxFileSize:'300kB',
+                        maxFileSize:'300kb',
                         maxBackupIndex:1,
                         layout:pattern(conversionPattern: '%d{[EEE, dd-MMM-yyyy @ HH:mm:ss.SSS]} [%t] %-5p %c %x - %m%n')
         rollingFile name:"processing",
@@ -137,9 +134,9 @@ log4j = {
                 additivity = true
             }
 
-            debug 'grails.app'
+            info 'grails.app'
             // log to the processor file
-            debug processing: 'grails.app'
+            info processing: ['grails.app.jobs.au.com.carwashclub.SalesPollerJob', 'au.com.carwashclub.GenerateVoucher']
 
         }
 
