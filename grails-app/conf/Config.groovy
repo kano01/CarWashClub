@@ -136,7 +136,7 @@ log4j = {
 
             info 'grails.app'
             // log to the processor file
-            info processing: ['grails.app.jobs.au.com.carwashclub.services', 'au.com.carwashclub.GenerateVoucher']
+            info processing: ['grails.app.jobs.au.com.carwashclub.jobs.SalesPollerJob']
 
         }
 

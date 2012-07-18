@@ -4,7 +4,7 @@ import org.quartz.Trigger
 import org.quartz.JobBuilder
 import org.quartz.TriggerBuilder
 import org.quartz.SimpleScheduleBuilder
-import au.com.carwashclub.services.SalesPollerService
+import au.com.carwashclub.jobs.SalesPollerJob
 
 
 class BootStrap {
@@ -25,7 +25,7 @@ class BootStrap {
 
         }
 
-     JobDetail job = JobBuilder.newJob(SalesPollerService.class)
+     JobDetail job = JobBuilder.newJob(SalesPollerJob.class)
     .withIdentity("SalesPoller", "carWashClubGroup")
     .build();
 

@@ -1,12 +1,11 @@
-package au.com.carwashclub.services
+package au.com.carwashclub.jobs
 
-import au.com.carwashclub.GenerateVoucher
-import au.com.carwashclub.domain.magento.SalesFlatOrder
-import au.com.carwashclub.domain.magento.SalesFlatOrderItem
-import org.quartz.Job
 import org.quartz.JobExecutionContext
+import au.com.carwashclub.domain.magento.SalesFlatOrderItem
+import au.com.carwashclub.domain.magento.SalesFlatOrder
+import org.quartz.Job
 
-class SalesPollerService implements Job {
+class SalesPollerJob implements Job {
 
     def voucherService;
 
@@ -16,7 +15,6 @@ class SalesPollerService implements Job {
         log.info("Running ${jobCtx.jobDetail.key.name} " )
 
         voucherService = grailsApplication.mainContext.getBean("voucherService");
-        voucherService.generateTokens();
 
         def result = SalesFlatOrder.findAll {
             voucherSent == null
@@ -31,7 +29,7 @@ class SalesPollerService implements Job {
             items.each {
                 SalesFlatOrderItem sf =  ((SalesFlatOrderItem)it);
                 log.info("Processing line item ID: " + sf.id + " Product:"  + sf.name + " Product Type: " + sf.productId);
-
+                voucherService.generateTokens();
 
             }
 

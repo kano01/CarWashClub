@@ -24,7 +24,7 @@ environments {
         dataSource {
             dbCreate = "update"
             driverClassName = "com.mysql.jdbc.Driver"
-            url = "jdbc:mysql://161.117.112.76/magento"
+            url = "jdbc:mysql://localhost/bitnami_magento"
             username = "root"
             password = "kanekane"
         }
