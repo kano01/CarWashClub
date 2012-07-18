@@ -1,10 +1,10 @@
-import au.com.carwashclub.User
-import au.com.carwashclub.SalesPollerJob
+import au.com.carwashclub.domain.User
 import org.quartz.JobDetail
 import org.quartz.Trigger
 import org.quartz.JobBuilder
 import org.quartz.TriggerBuilder
 import org.quartz.SimpleScheduleBuilder
+import au.com.carwashclub.services.SalesPollerService
 
 
 class BootStrap {
@@ -16,17 +16,17 @@ class BootStrap {
         log.info("Bootstrap Init starting quartz");
 
         if(User.count() == 0){
+          log.info("No users found inserting users");
           def adminUser = new User(username: 'admin', enabled: true, password: 'password')
           adminUser.setAuthorities("ROLE_ADMIN");
           adminUser.save(flush: true)
-
 
           assert User.count() == 1
 
         }
 
-     JobDetail job = JobBuilder.newJob(SalesPollerJob.class)
-    .withIdentity("SalesPollerJob", "carWashClubGroup")
+     JobDetail job = JobBuilder.newJob(SalesPollerService.class)
+    .withIdentity("SalesPoller", "carWashClubGroup")
     .build();
 
     // Trigger the job to run now, and then repeat every 40 seconds

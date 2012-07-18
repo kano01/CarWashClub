@@ -14,11 +14,18 @@ hibernate {
 
 environments {
     development {
+//        dataSource {
+//            dbCreate = "update"
+//            driverClassName = "com.mysql.jdbc.Driver"
+//            url = "jdbc:mysql://192.168.1.114/bitnami_magento"
+//            username = "kane"
+//            password = "kanekane"
+//        }
         dataSource {
             dbCreate = "update"
             driverClassName = "com.mysql.jdbc.Driver"
-            url = "jdbc:mysql://192.168.1.114/bitnami_magento"
-            username = "kane"
+            url = "jdbc:mysql://161.117.112.76/magento"
+            username = "root"
             password = "kanekane"
         }
     }

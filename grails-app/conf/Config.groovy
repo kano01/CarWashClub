@@ -136,7 +136,7 @@ log4j = {
 
             info 'grails.app'
             // log to the processor file
-            info processing: ['grails.app.jobs.au.com.carwashclub.SalesPollerJob', 'au.com.carwashclub.GenerateVoucher']
+            info processing: ['grails.app.jobs.au.com.carwashclub.services', 'au.com.carwashclub.GenerateVoucher']
 
         }
 
@@ -166,7 +166,7 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'au.com.carwashclub.User'
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'au.com.carwashclub.domain.User'
 //grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'au.com.carwashclub.UserRole'
 //grails.plugins.springsecurity.authority.className = 'au.com.carwashclub.Role'
 grails.plugins.springsecurity.userLookup.authoritiesPropertyName = 'roles'
