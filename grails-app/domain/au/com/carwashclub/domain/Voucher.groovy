@@ -24,10 +24,11 @@ class Voucher {
 
     static constraints = {
         customer()
-        supplier()
+        supplier(nullable: true)
         membership(nullable: true)
         token()
-        createdDate()
-        usedDate()
+        createdDate(nullable: true)
+        usedDate(nullable: true)
+        expiryDate(nullable: true)
     }
 }

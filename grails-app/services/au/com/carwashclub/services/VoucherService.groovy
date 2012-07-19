@@ -7,6 +7,7 @@ import au.com.carwashclub.domain.MembershipType
 import au.com.carwashclub.domain.Membership
 import au.com.carwashclub.domain.Voucher
 import au.com.carwashclub.domain.magento.CustomerEntity
+import org.springframework.transaction.annotation.Transactional
 
 class VoucherService {
 
@@ -44,39 +45,21 @@ class VoucherService {
     }
 
     private Membership createMembership(MembershipType membershipType, SalesFlatOrderItem saleItem){
+        log.info("Creating membership");
         Membership membership = new Membership(membershipType: membershipType, customerEntity: saleItem.getSalesFlatOrder().getCustomer());
-        membership.save()
         for(int i = 0; i < membershipType.voucherQuantity;  i++) {
-            Voucher voucher = createVoucher(membership,saleItem.getSalesFlatOrder().getCustomer())
-            membership.addToVouchers(voucher);
+            membership.addToVouchers(createVoucher(membership,saleItem.getSalesFlatOrder().getCustomer()))
         }
-
+        membership.save(flush: true);
         log.info("Membership created with "+ membership.vouchers.size() +" vouchers");
     }
 
-    private createVoucher(Membership membership, CustomerEntity customer){
+    private Voucher createVoucher(Membership membership, CustomerEntity customer){
         Voucher voucher = new Voucher(customer: customer);
-        String[] tokenPin = generateTokens();
-        voucher.setToken(tokenPin[0])
-        voucher.setPin(tokenPin[1])
-        if(membership != null){
-            voucher.setMembership(membership);
-        }
-        voucher.save()
+        voucher.setToken(randomToken())
+        voucher.setPin(randomPin())
+        log.info("Creating voucher. Token: " + voucher.getToken() + " Pin: " + voucher.getPin()  )
         return voucher;
-    }
-
-    private String[] generateTokens() {
-
-        String[] tokenPin = new String[2];
-
-        tokenPin[0] = randomToken();
-        tokenPin[1] = randomPin();
-
-        log.info("Token generated Token: " + tokenPin[0] + " Pin: " + tokenPin[1]  )
-        return tokenPin;
-
-
     }
 
     private String randomToken() {
@@ -87,7 +70,6 @@ class VoucherService {
        }
 
        return new String(buf);
-
     }
 
     private String randomPin() {
@@ -98,6 +80,5 @@ class VoucherService {
        }
 
        return new String(buf);
-
     }
 }
