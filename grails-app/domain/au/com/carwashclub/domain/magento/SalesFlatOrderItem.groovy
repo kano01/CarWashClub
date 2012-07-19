@@ -9,6 +9,10 @@ class SalesFlatOrderItem {
     Date createdAt
     Date updatedAt
     Short parentItemId
+    Double qtyOrdered
+    Double price
+    Double priceInclTax
+
 
     SalesFlatOrder salesFlatOrder
 

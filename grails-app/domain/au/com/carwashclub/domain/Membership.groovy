@@ -7,6 +7,7 @@ class Membership {
     def MembershipType membershipType
     def CustomerEntity customerEntity
 
+    static hasMany = [vouchers: Voucher]
     static constraints = {
         customerEntity()
         membershipType()

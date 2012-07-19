@@ -29,7 +29,8 @@ class SalesPollerJob implements Job {
             items.each {
                 SalesFlatOrderItem sf =  ((SalesFlatOrderItem)it);
                 log.info("Processing line item ID: " + sf.id + " Product:"  + sf.name + " Product Type: " + sf.productId);
-                voucherService.generateTokens();
+                voucherService.processSalesItem(sf);
+//                voucherService.generateTokens();
 
             }
 
