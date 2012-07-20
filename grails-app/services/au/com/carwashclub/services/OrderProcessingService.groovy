@@ -22,7 +22,7 @@ class OrderProcessingService {
 
     private static final int PIN_LENGTH = 4;
 
-    public void processSalesOrder(SalesFlatOrder sale) {
+    def processSalesOrder(SalesFlatOrder sale) {
             def items =  sale.saleFlatOrderItems;
             Iterator<SalesFlatOrderItem> sfIter = sale.saleFlatOrderItems.iterator()
             while ( sfIter.hasNext() ){
@@ -34,6 +34,7 @@ class OrderProcessingService {
 
             sale.setOrderProcessed(new Date())
             sale.save(flush: true);
+            log.info("Sale Processed successfully: " + sale.id);
     }
 
     private void processSalesItem(SalesFlatOrderItem saleItem) {

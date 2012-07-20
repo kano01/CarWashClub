@@ -13,4 +13,13 @@ class Membership {
         membershipType()
     }
 
+    def String toString(){
+        StringBuilder result = new StringBuilder();
+
+        result.append(membershipType.name).append(" ").append(membershipType.optionsMatch);
+
+        return result.toString();
+
+    }
+
 }

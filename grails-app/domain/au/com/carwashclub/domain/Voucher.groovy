@@ -35,4 +35,12 @@ class Voucher {
         expiryDate(nullable: true)
         salesItem(nullable: true)
     }
+
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+
+        result.append(this.token);
+
+        return result.toString();
+  }
 }

@@ -12,4 +12,8 @@ class MembershipType {
         optionsMatch(inList: ["x12 Washes","x6 Washes","x3 Washes"])
         voucherQuantity(inList: [12,6,3])
     }
+
+    def String toString(){
+        return name + " " + optionsMatch;
+    }
 }

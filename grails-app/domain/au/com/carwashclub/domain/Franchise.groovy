@@ -24,8 +24,8 @@ class Franchise {
         contact()
         phone()
         email(email:  true)
-        street()
-        suburb()
+        street(nullable: true)
+        suburb(nullable: true)
         state(inList: ["VIC","NSW", "SA", "TAS", "ACT", "QLD", "WA", "NT"])
         postcode(size: (4))
     }
