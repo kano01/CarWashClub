@@ -1,6 +1,7 @@
 package au.com.carwashclub.domain
 
 import au.com.carwashclub.domain.magento.CustomerEntity
+import au.com.carwashclub.domain.magento.SalesFlatOrderItem
 
 class Voucher {
 
@@ -21,14 +22,17 @@ class Voucher {
     Supplier supplier
     CustomerEntity customer
     Membership membership
+    SalesFlatOrderItem salesItem
 
     static constraints = {
         customer()
+        token()
+        pin()
         supplier(nullable: true)
         membership(nullable: true)
-        token()
         createdDate(nullable: true)
         usedDate(nullable: true)
         expiryDate(nullable: true)
+        salesItem(nullable: true)
     }
 }

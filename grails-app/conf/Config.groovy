@@ -96,14 +96,14 @@ log4j = {
         // Custom log file.
         rollingFile name:"appLog",
                         file:logDirectory + '/carwashclub.log',
-                        maxFileSize:'300kb',
-                        maxBackupIndex:1,
+                        maxFileSize:'1MB',
+                        maxBackupIndex:5,
                         layout:pattern(conversionPattern: '%d{[EEE, dd-MMM-yyyy @ HH:mm:ss.SSS]} [%t] %-5p %c %x - %m%n')
         rollingFile name:"processing",
                         file:logDirectory + '/processing.log',
-                        maxFileSize:'300kB',
-                        maxBackupIndex:1,
-                        layout:pattern(conversionPattern: '%d{[EEE, dd-MMM-yyyy @ HH:mm:ss.SSS]} [%t] %-5p %c %x - %m%n')
+                        maxFileSize:'1MB',
+                        maxBackupIndex:5,
+                        layout:pattern(conversionPattern: '%d{[EEE, dd-MMM-yyyy @ HH:mm:ss.SSS]} %-5p %c{2} %x - %m%n')
     }
 
 // This is for the built-in stuff and from the default Grails-1.2.1 config.
@@ -135,8 +135,10 @@ log4j = {
             }
 
             info 'grails.app'
+            info 'org.hibernate.SQL'
             // log to the processor file
-            info processing: ['grails.app.jobs.au.com.carwashclub.jobs.SalesPollerJob']
+            info processing: ['grails.app.jobs.au.com.carwashclub.jobs.SalesPollerJob',
+                    'grails.app.services.au.com.carwashclub.services.VoucherService']
 
         }
 

@@ -12,6 +12,7 @@ class SalesFlatOrderItem {
     Double qtyOrdered
     Double price
     Double priceInclTax
+    Date lineProcessed
 
 
     SalesFlatOrder salesFlatOrder
@@ -23,7 +24,8 @@ class SalesFlatOrderItem {
     }
 
     static constraints = {
-
+        lineProcessed(nullable: true)
+        parentItemId(nullable: true)
     }
 
     public String toString() {

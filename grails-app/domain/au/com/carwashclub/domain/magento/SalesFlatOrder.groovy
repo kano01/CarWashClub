@@ -14,7 +14,9 @@ class SalesFlatOrder {
 
     CustomerEntity customer
 
-    Date voucherSent
+    Date orderSent
+
+    Date orderProcessed
 
     static hasMany = [saleFlatOrderItems: SalesFlatOrderItem]
 
@@ -27,7 +29,8 @@ class SalesFlatOrder {
         id()
         createdAt()
         customer()
-        voucherSent(nullable: true)
+        orderProcessed(nullable: true)
+        orderSent(nullable: true)
 
     }
 
