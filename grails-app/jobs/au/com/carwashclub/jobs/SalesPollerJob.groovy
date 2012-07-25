@@ -31,9 +31,11 @@ class SalesPollerJob implements Job {
         result = SalesFlatOrder.findAll("from SalesFlatOrder as sf where sf.orderProcessed is not null and sf.orderSent is null");
         log.info("Pdf Generation queue size: " + result.size())
         result.each {
-//            pdfGeneratorService.pdfForSaleOrder(it)
+            pdfGeneratorService.pdfForSaleOrder(it)
         }
+//        pdfGeneratorService.pdfForSaleOrder()
+//        log.info(grailsApplication.config.grails.serverURL);
 
-        pdfGeneratorService.pdfForSaleOrder();
+
      }
 }

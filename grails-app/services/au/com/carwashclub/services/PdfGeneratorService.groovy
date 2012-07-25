@@ -1,24 +1,36 @@
 package au.com.carwashclub.services
 
 import au.com.carwashclub.domain.magento.SalesFlatOrder
-import grails.plugin.rendering.RenderingService
 import grails.plugin.rendering.pdf.PdfRenderingService
-import grails.plugin.rendering.image.JpegRenderingService
+import org.codehaus.groovy.grails.commons.ApplicationHolder
+import au.com.carwashclub.domain.Voucher
 
 class PdfGeneratorService {
+
+    static byte[] logoImage;
 
     def PdfRenderingService pdfRenderingService
 
     def pdfForSaleOrder(SalesFlatOrder sale) {
+        if(logoImage == null){
+            logoImage = new File(ApplicationHolder.application.parentContext.servletContext.getRealPath("/images/cwc_logo.png")).bytes
+        }
 
-        // Render to a file
-//        new File("voucher.pdf").withOutputStream { outputStream ->
-//            pdfRenderingService.render(template: '/pdfVouchers')
-//        }
+        log.info("Generating PDF");
 
-        def bytes = pdfRenderingService.render(template: '/pdfVouchers', model: [sale: sale])
+        List<Voucher> vouchers  = Voucher.executeQuery("select v from Voucher as v, SalesFlatOrder as s, SalesFlatOrderItem as si where s.id = :saleId and si.salesFlatOrder = s and v.salesItem = si",[saleId: sale.id])
+        log.info("Vouchers " + vouchers.size())
 
-        new File("voucher1.pdf").append(bytes);
+        ByteArrayOutputStream bytes = pdfRenderingService.render(template: '/pdfVouchers', model: [imageBytes:logoImage, vouchers: vouchers])
+
+        OutputStream outputStream = new FileOutputStream (sale.id + "-voucher.pdf")
+
+        bytes.writeTo(outputStream);
+        bytes.close();
+
+        outputStream.close();
+
+        log.info("PDF Generation Completed");
 
     }
 }

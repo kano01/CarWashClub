@@ -6,10 +6,8 @@ class UrlMappings {
 				// apply constraints here
 			}
 		}
-        //Default admin home page
-//        "/"(controller:"voucher" /list")
         "/"(controller: "voucher")
-        "/pdf"(view:'/_pdfVouchers')
+        "/pdfPreview"(view: '/_pdfVouchers')
 		"500"(view:'/error')
 	}
 }
