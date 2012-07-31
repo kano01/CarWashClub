@@ -125,6 +125,13 @@ log4j = {
 
     info 'grails.app.conf.bootstrap' // Set the log level per type and per type.class
 
+        // log to the processor file
+    info processing: ['grails.app.jobs.au.com.carwashclub.jobs.SalesPollerJob',
+            'grails.app.services.au.com.carwashclub.services.EmailVouchersService',
+            'grails.app.services.au.com.carwashclub.services.OrderProcessingService',
+            'grails.app.services.au.com.carwashclub.services.PdfGeneratorService'
+    ]
+
     // Move anything that should behave differently into this section.
     environments {
         development {
@@ -135,11 +142,7 @@ log4j = {
             }
 
             info 'grails.app'
-            info 'org.hibernate.SQL'
-            // log to the processor file
-            info processing: ['grails.app.jobs.au.com.carwashclub.jobs.SalesPollerJob',
-                    'grails.app.services.au.com.carwashclub.services.VoucherService']
-
+            debug 'org.hibernate.SQL'
         }
 
         test {
@@ -169,8 +172,6 @@ log4j = {
 
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'au.com.carwashclub.domain.User'
-//grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'au.com.carwashclub.UserRole'
-//grails.plugins.springsecurity.authority.className = 'au.com.carwashclub.Role'
 grails.plugins.springsecurity.userLookup.authoritiesPropertyName = 'roles'
 grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
 //grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/index'
@@ -180,7 +181,6 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/supplier/**':   ['ROLE_ADMIN'],
    '/voucher/**':   ['ROLE_ADMIN', 'ROLE_SUPPLIER'],
    '/customerEntity/**':   ['ROLE_ADMIN'],
-//   '/validate/**':   ['ROLE_SUPPLIER'],
    '/js/**':        ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/css/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/images/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
@@ -203,4 +203,17 @@ org{
 		jobStore.misfireThreshold =60000
 
 	}
+}
+
+grails {
+   mail {
+     host = "smtp.gmail.com"
+     port = 465
+     username = "blah@gmail.com"
+     password = "blah"
+     props = ["mail.smtp.auth":"true",
+              "mail.smtp.socketFactory.port":"465",
+              "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+              "mail.smtp.socketFactory.fallback":"false"]
+   }
 }

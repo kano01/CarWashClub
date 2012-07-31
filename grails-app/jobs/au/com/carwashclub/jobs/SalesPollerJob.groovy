@@ -8,7 +8,7 @@ import org.quartz.Job
 class SalesPollerJob implements Job {
 
     def orderProcessingService;
-    def pdfGeneratorService;
+    def emailVouchersService;
 
     def grailsApplication;
 
@@ -16,7 +16,7 @@ class SalesPollerJob implements Job {
         log.info("Running ${jobCtx.jobDetail.key.name} " )
 
         orderProcessingService = grailsApplication.mainContext.getBean("orderProcessingService");
-        pdfGeneratorService = grailsApplication.mainContext.getBean("pdfGeneratorService");
+        emailVouchersService = grailsApplication.mainContext.getBean("emailVouchersService");
 
         def result = SalesFlatOrder.findAll("from SalesFlatOrder as sf where sf.orderProcessed is null")
 
@@ -31,10 +31,11 @@ class SalesPollerJob implements Job {
         result = SalesFlatOrder.findAll("from SalesFlatOrder as sf where sf.orderProcessed is not null and sf.orderSent is null");
         log.info("Pdf Generation queue size: " + result.size())
         result.each {
-            pdfGeneratorService.pdfForSaleOrder(it)
+              emailVouchersService.send(it)
+//            pdfGeneratorService.pdfForSaleOrder(it)
+//            pdfGeneratorService.pdfForSalesOrderAsFile(it, "voucher" +it.id+".pdf")
         }
-//        pdfGeneratorService.pdfForSaleOrder()
-//        log.info(grailsApplication.config.grails.serverURL);
+
 
 
      }

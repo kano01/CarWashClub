@@ -11,26 +11,35 @@ class PdfGeneratorService {
 
     def PdfRenderingService pdfRenderingService
 
-    def pdfForSaleOrder(SalesFlatOrder sale) {
+    ByteArrayOutputStream pdfForSaleOrder(SalesFlatOrder sale) {
         if(logoImage == null){
             logoImage = new File(ApplicationHolder.application.parentContext.servletContext.getRealPath("/images/cwc_logo.png")).bytes
         }
 
-        log.info("Generating PDF");
-
         List<Voucher> vouchers  = Voucher.executeQuery("select v from Voucher as v, SalesFlatOrder as s, SalesFlatOrderItem as si where s.id = :saleId and si.salesFlatOrder = s and v.salesItem = si",[saleId: sale.id])
-        log.info("Vouchers " + vouchers.size())
+        log.info("Generating PDF for Sale: " + sale.id + " with " + vouchers.size() + " vouchers")
 
-        ByteArrayOutputStream bytes = pdfRenderingService.render(template: '/pdfVouchers', model: [imageBytes:logoImage, vouchers: vouchers])
-
-        OutputStream outputStream = new FileOutputStream (sale.id + "-voucher.pdf")
-
-        bytes.writeTo(outputStream);
-        bytes.close();
-
-        outputStream.close();
-
-        log.info("PDF Generation Completed");
+        return pdfRenderingService.render(template: '/pdfVouchers', model: [imageBytes:logoImage, vouchers: vouchers])
 
     }
+
+    File pdfForSalesOrderAsFile(SalesFlatOrder sale, String fileUri) {
+        ByteArrayOutputStream byteStream;
+        OutputStream outputStream;
+
+        try {
+            outputStream = new FileOutputStream (fileUri);
+
+            byteStream = pdfForSaleOrder(sale);
+            byteStream.writeTo(outputStream);
+
+        }finally {
+            if(byteStream)
+               byteStream.close();
+
+            if(outputStream)
+            outputStream.close();
+        }
+    }
+
 }
